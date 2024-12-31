@@ -224,13 +224,13 @@
             // 
             ViewLastOutput.Location = new Point(451, 296);
             ViewLastOutput.Name = "ViewLastOutput";
-            ViewLastOutput.Size = new Size(63, 23);
+            ViewLastOutput.Size = new Size(128, 23);
             ViewLastOutput.TabIndex = 18;
             ViewLastOutput.Text = "View Last Output";
             ViewLastOutput.UseVisualStyleBackColor = true;
             ViewLastOutput.Click += ViewLastOutput_Click;
             // 
-            // Form1
+            // VideoCombine
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -254,7 +254,7 @@
             Controls.Add(InputAudio);
             Controls.Add(InputVideo);
             Controls.Add(FfmpegPath);
-            Name = "Form1";
+            Name = "VideoCombine";
             Text = "Video Combine";
             ResumeLayout(false);
             PerformLayout();
