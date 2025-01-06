@@ -222,7 +222,7 @@
             // 
             // ViewLastOutput
             // 
-            ViewLastOutput.Location = new Point(451, 296);
+            ViewLastOutput.Location = new Point(386, 296);
             ViewLastOutput.Name = "ViewLastOutput";
             ViewLastOutput.Size = new Size(128, 23);
             ViewLastOutput.TabIndex = 18;
@@ -232,6 +232,7 @@
             // 
             // VideoCombine
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
@@ -256,6 +257,8 @@
             Controls.Add(FfmpegPath);
             Name = "VideoCombine";
             Text = "Video Combine";
+            DragDrop += VideoCombine_DragDrop;
+            DragEnter += VideoCombine_DragEnter;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -64,7 +64,7 @@ namespace VideoCombine {
 
             return !validations.Where(valid => !valid).Any();
         }
-        
+
         void InitOutFileName() {
             OutputFileName.Text = $"combined-audio--{DateTime.Now:yyyy-MM-dd--hh-mm-ss}.mp4";
         }
@@ -80,7 +80,7 @@ namespace VideoCombine {
             if(!error) {
                 InputVideo.Text = string.Empty;
                 InputAudio.Text = string.Empty;
-                
+
             }
         }
 
@@ -126,6 +126,27 @@ namespace VideoCombine {
 
         private void ViewLastOutput_Click(object sender, EventArgs e) {
             MessageBox.Show(_lastOutput);
+        }
+
+        private void VideoCombine_DragEnter(object sender, DragEventArgs e) {
+            if(e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void VideoCombine_DragDrop(object sender, DragEventArgs e) {
+            string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if(filePaths.Length != 0) {
+                if(string.IsNullOrEmpty(InputVideo.Text)){
+                    InputVideo.Text = filePaths[0];
+                    InputVideo_Leave(InputVideo, null);
+                } else if(string.IsNullOrEmpty(InputAudio.Text)) {
+                    InputAudio.Text = filePaths[0];
+                    InputAudio_Leave(InputAudio, null);
+                } else {
+                    InputVideo.Text = filePaths[0];
+                    InputVideo_Leave(InputVideo, null);
+                }
+            }
         }
     }
 }
